@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb58fef22vb1m"]
+
+[ext_resource type="PackedScene" uid="uid://b3i28rin2opce" path="res://World/Interactables/Interactable.tscn" id="1_5paop"]
+[ext_resource type="Script" path="res://World/Interactables/DialogueInteractable.gd" id="2_oomod"]
+
+[node name="DialogueInteractable" instance=ExtResource("1_5paop")]
+script = ExtResource("2_oomod")
+dialogue = []
+interactableType = 1
+verb = "Read"

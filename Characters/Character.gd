@@ -4,7 +4,7 @@ extends CharacterBody2D
 const WALK_SPEED = 96
 
 var prevVelocity = Vector2.ZERO
-var facing = ""
+@export var facing = ""
 var walking = ""
 
 

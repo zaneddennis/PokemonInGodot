@@ -1,5 +1,8 @@
 extends Node
 
+
+const GRID_SIZE = 32
+
 const DIRECTIONS = {
 	"up": Vector2(0, -1),
 	"down": Vector2(0, 1),

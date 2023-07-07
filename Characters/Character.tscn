@@ -170,8 +170,10 @@ size = Vector2(14, 6)
 y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_145cv")
+facing = "down"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
 texture = ExtResource("1_55pmc")
 offset = Vector2(0, -16)
 hframes = 4
@@ -185,5 +187,4 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_6yd5o")

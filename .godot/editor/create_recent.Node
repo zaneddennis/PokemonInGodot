@@ -1,5 +1,12 @@
+Control
+MarginContainer
+Label
+Panel
+CanvasLayer
+RayCast2D
 Node2D
 CollisionShape2D
+Area2D
 Camera2D
 Node
 AnimationPlayer

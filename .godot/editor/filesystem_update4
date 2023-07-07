@@ -1,4 +1,12 @@
 res://World/Maps/Map.tscn
+res://UI/default_theme.tres
 res://World/Maps/Flowershore.tscn
 res://Characters/Character.tscn
-res://Characters/player.tscn
+res://Characters/Player.tscn
+res://World/Interactables/Interactable.tscn
+res://Characters/Player.gd
+res://World/Interactables/DialogueInteractable.tscn
+res://World/Interactables/DialogueInteractable.gd
+res://World/Interactables/Interactable.gd
+res://UI/UIManager.gd
+res://UI/DialogueManager.gd

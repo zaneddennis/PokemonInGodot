@@ -7,3 +7,9 @@
 script = ExtResource("2_ygbl6")
 
 [node name="Camera2D" type="Camera2D" parent="." index="1"]
+
+[node name="RayCast2D" type="RayCast2D" parent="." index="3"]
+target_position = Vector2(0, 8)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
