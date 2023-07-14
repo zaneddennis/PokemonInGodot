@@ -1,0 +1,188 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8hbdjwva5wxw"]
+
+[ext_resource type="Theme" uid="uid://b1dqrb0hsk51q" path="res://UI/default_theme.tres" id="1_i2rol"]
+[ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_ubn04"]
+[ext_resource type="Texture2D" uid="uid://c4jo14yp6tyhj" path="res://Characters/PokemonCharacterSprites.png" id="3_j1hb1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xbcss"]
+font_size = 32
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jphq"]
+atlas = ExtResource("3_j1hb1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x821m"]
+atlas = ExtResource("3_j1hb1")
+region = Rect2(0, 128, 32, 32)
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_ubn04")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_i2rol")
+alignment = 2
+
+[node name="Content" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/Content"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "WING-MON"
+label_settings = SubResource("LabelSettings_xbcss")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGame" type="Panel" parent="HBoxContainer/Content"]
+visible = false
+custom_minimum_size = Vector2(128, 192)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Content/NewGame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -8.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayerName" type="LineEdit" parent="HBoxContainer/Content/NewGame/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Your Name"
+max_length = 10
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/Content/NewGame/VBoxContainer"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Boy"
+popup/item_0/icon = SubResource("AtlasTexture_3jphq")
+popup/item_0/id = 0
+popup/item_1/text = "Girl"
+popup/item_1/icon = SubResource("AtlasTexture_x821m")
+popup/item_1/id = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/Content/NewGame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "NEW GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="Panel" parent="HBoxContainer/Content/NewGame"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" type="Button" parent="HBoxContainer/Content/NewGame/Start"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+flat = true
+
+[node name="Menu" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Menu"]
+layout_mode = 2
+color = Color(0.172549, 0.172549, 0.172549, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Menu/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Menu/ColorRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Continue" type="Panel" parent="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/Continue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+text = "Continue
+
+[Details]"
+flat = true
+
+[node name="NewGame" type="Panel" parent="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/NewGame"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "New Game"
+flat = true
+
+[node name="Exit" type="Panel" parent="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/Exit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit to Desktop"
+flat = true
+
+[connection signal="pressed" from="HBoxContainer/Content/NewGame/Start/Button" to="." method="_on_newgame_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/NewGame/Button" to="." method="_on_newgame_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/Exit/Button" to="." method="_on_exit_pressed"]

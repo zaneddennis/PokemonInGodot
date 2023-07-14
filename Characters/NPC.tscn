@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://i1pmuts22bdk"]
+
+[ext_resource type="PackedScene" uid="uid://bg3bsov7q7mpm" path="res://Characters/Character.tscn" id="1_efbk3"]
+[ext_resource type="PackedScene" uid="uid://pcd0iv6nw0vu" path="res://World/Interactables/NPCInteractable.tscn" id="2_6kqb4"]
+
+[node name="NPC" instance=ExtResource("1_efbk3")]
+
+[node name="NPCInteractable" parent="." index="2" instance=ExtResource("2_6kqb4")]
+position = Vector2(0, -8)
+verb = "Talk"

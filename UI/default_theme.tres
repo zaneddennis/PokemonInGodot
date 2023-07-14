@@ -12,7 +12,14 @@ texture_margin_bottom = 8.0
 
 [resource]
 default_font = ExtResource("2_82lkb")
-default_font_size = 12
+default_font_size = 16
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.392157, 0.392157, 0.392157, 1)
+Button/colors/font_hover_pressed_color = Color(0.784314, 0.784314, 0.784314, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.588235, 0.588235, 0.588235, 1)
 Label/colors/font_color = Color(0, 0, 0, 1)
 Label/constants/shadow_offset_x = 0
 Label/constants/shadow_offset_y = 0

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://uabdxigo84fq"]
+
+[ext_resource type="PackedScene" uid="uid://c2doo4ohews3e" path="res://World/Maps/Map.tscn" id="1_qlkd5"]
+[ext_resource type="PackedScene" uid="uid://d364y4mor0to6" path="res://World/Interactables/DoorInteractable.tscn" id="2_3kxua"]
+
+[node name="Map" instance=ExtResource("1_qlkd5")]
+
+[node name="TileMap" parent="." index="0"]
+layer_0/tile_data = PackedInt32Array()
+layer_1/tile_data = PackedInt32Array(0, 196608, 10, 1, 196608, 10, 2, 196608, 10, 131072, 196608, 10, 65536, 196608, 10, 65537, 196608, 10, 65538, 196608, 10, 131074, 196608, 10, 131073, 196608, 10)
+layer_3/tile_data = PackedInt32Array(2, 196609, 3, 65538, 1, 3, 131074, 65537, 3, 0, 262145, 3, 196609, 65539, 1)
+
+[node name="DoorInteractable" parent="Interactables" index="0" instance=ExtResource("2_3kxua")]
+position = Vector2(48, 112)
+destination = "Flowershore"
+destinationDoor = "House1Door"
+verb = "Exit"
+
+[node name="Player" parent="Characters" index="0"]
+position = Vector2(48, 88)
+facing = "up"

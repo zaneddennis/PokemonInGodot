@@ -164,7 +164,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6yd5o"]
-size = Vector2(14, 6)
+size = Vector2(20, 6)
 
 [node name="Character" type="CharacterBody2D"]
 y_sort_enabled = true

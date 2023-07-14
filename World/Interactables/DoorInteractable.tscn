@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d364y4mor0to6"]
+
+[ext_resource type="PackedScene" uid="uid://b3i28rin2opce" path="res://World/Interactables/Interactable.tscn" id="1_8y0h6"]
+[ext_resource type="Script" path="res://World/Interactables/DoorInteractable.gd" id="2_qpevr"]
+
+[node name="DoorInteractable" instance=ExtResource("1_8y0h6")]
+script = ExtResource("2_qpevr")
+destination = ""
+destinationDoor = ""
+destinationDir = "down"
+interactableType = 3
+verb = "Enter"

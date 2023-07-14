@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://pcd0iv6nw0vu"]
+
+[ext_resource type="PackedScene" uid="uid://bb58fef22vb1m" path="res://World/Interactables/DialogueInteractable.tscn" id="1_u5sqj"]
+[ext_resource type="Script" path="res://World/Interactables/NPCInteractable.gd" id="2_vpbbe"]
+
+[node name="NPCInteractable" instance=ExtResource("1_u5sqj")]
+script = ExtResource("2_vpbbe")
+npcName = ""

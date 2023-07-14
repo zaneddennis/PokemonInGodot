@@ -1,11 +1,12 @@
-extends TileMap
-class_name Map
+extends Node2D
 
 
-const LAYERS = {
-	"Water": 0,
-	"Base": 1,
-	"Path": 2,
-	"Objects": 3,
-	"Decorations": 4
-}
+func _ready():
+	print("Ready: ", scene_file_path)
+	Activate()
+
+
+# check SceneTransition for scene setup details?
+func Activate():
+	if SceneTransition.newDoor:
+		$Characters/Player.position = get_node("Interactables/" + SceneTransition.newDoor).position + Constants.DIRECTIONS[SceneTransition.newDoorDir] * Constants.GRID_SIZE

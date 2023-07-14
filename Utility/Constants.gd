@@ -9,3 +9,11 @@ const DIRECTIONS = {
 	"left": Vector2(-1, 0),
 	"right": Vector2(1, 0)
 }
+
+const LAYERS = {
+	"Water": 0,
+	"Base": 1,
+	"Path": 2,
+	"Objects": 3,
+	"Decorations": 4
+}

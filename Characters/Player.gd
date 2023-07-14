@@ -3,9 +3,8 @@ extends "res://Characters/Character.gd"
 
 const INTERACTION_RANGE = 8
 
-enum INPUT_MODE {NORMAL, DIALOGUE}
+enum INPUT_MODE {NORMAL, DIALOGUE, START}
 
-@export var map: Map
 @export var ui: Control
 
 
@@ -16,7 +15,7 @@ var potentialInteract = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	super()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,10 +32,10 @@ func _input(event):
 			InputNormal()
 		
 		INPUT_MODE.DIALOGUE:
-			pass
+			InputDialogue()
 		
 		_:
-			assert(false)
+			pass
 
 
 func ProcessInteraction():
@@ -66,10 +65,34 @@ func InputNormal():
 	if Input.is_action_just_pressed("interact"):
 		if potentialInteract:
 			Interact(potentialInteract)
+	
+	if Input.is_action_just_pressed("start"):
+		Start()
+
+func InputDialogue():
+	if Input.is_action_just_pressed("interact"):
+		AdvanceDialogue()
 
 
 func Interact(target):
 	print("Interacting with " + target.name)
+	StopWalk()
 	if target.interactableType == Interactable.INTERACTABLE_TYPE.DIALOGUE:
-		ui.ActivateDialogue(["text 1", "text 2", "text 3"])
+		ui.ActivateDialogue(target)
 		inputMode = INPUT_MODE.DIALOGUE
+	elif target.interactableType == Interactable.INTERACTABLE_TYPE.DOOR:
+		ui.CloseInteract()
+		potentialInteract = null
+		EnterDoor(target)
+
+
+func Start():
+	StopWalk()
+	ui.ActivateStart()
+	inputMode = INPUT_MODE.START
+
+func AdvanceDialogue():
+	ui.AdvanceDialogue()
+
+func EnterDoor(door):
+	SceneTransition.Door(door)
