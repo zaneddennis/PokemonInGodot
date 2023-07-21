@@ -1,13 +1,13 @@
 Button
+Label
 VBoxContainer
 Panel
+Control
 OptionButton
 TextureRect
 HBoxContainer
 TextureButton
-Control
 LineEdit
-Label
 MarginContainer
 ColorRect
 FlowContainer

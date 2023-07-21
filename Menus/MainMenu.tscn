@@ -150,9 +150,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 disabled = true
-text = "Continue
-
-[Details]"
+text = "No save data
+found"
 flat = true
 
 [node name="NewGame" type="Panel" parent="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer"]
@@ -184,5 +183,6 @@ text = "Exit to Desktop"
 flat = true
 
 [connection signal="pressed" from="HBoxContainer/Content/NewGame/Start/Button" to="." method="_on_newgame_start_pressed"]
+[connection signal="pressed" from="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/Continue/Button" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/NewGame/Button" to="." method="_on_newgame_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/Exit/Button" to="." method="_on_exit_pressed"]

@@ -16,6 +16,7 @@ var potentialInteract = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
+	print(INPUT_MODE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,6 +24,8 @@ func _process(delta):
 	super(delta)
 	
 	ProcessInteraction()
+	
+	UpdateGameStatus()
 
 
 func _input(event):
@@ -33,6 +36,9 @@ func _input(event):
 		
 		INPUT_MODE.DIALOGUE:
 			InputDialogue()
+		
+		INPUT_MODE.START:
+			InputStart()
 		
 		_:
 			pass
@@ -48,6 +54,10 @@ func ProcessInteraction():
 	else:
 		ui.CloseInteract()
 		potentialInteract = null
+
+
+func UpdateGameStatus():
+	GameStatus.playerPosition = position
 
 
 func InputNormal():
@@ -69,9 +79,15 @@ func InputNormal():
 	if Input.is_action_just_pressed("start"):
 		Start()
 
+
 func InputDialogue():
 	if Input.is_action_just_pressed("interact"):
 		AdvanceDialogue()
+
+
+func InputStart():
+	if Input.is_action_just_pressed("start"):
+		CloseStart()
 
 
 func Interact(target):
@@ -91,8 +107,12 @@ func Start():
 	ui.ActivateStart()
 	inputMode = INPUT_MODE.START
 
+func CloseStart():
+	ui.CloseStart()
+	inputMode = INPUT_MODE.NORMAL
+
 func AdvanceDialogue():
 	ui.AdvanceDialogue()
 
 func EnterDoor(door):
-	SceneTransition.Door(door)
+	SceneTransition.FromDoor(door)

@@ -25,3 +25,6 @@ func CloseDialogue():
 
 func ActivateStart():
 	$Start.show()
+
+func CloseStart():
+	$Start.hide()

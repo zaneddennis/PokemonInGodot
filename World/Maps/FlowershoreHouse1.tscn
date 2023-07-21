@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d364y4mor0to6" path="res://World/Interactables/DoorInteractable.tscn" id="2_3kxua"]
 
 [node name="Map" instance=ExtResource("1_qlkd5")]
+mapName = "FlowershoreHouse1"
 
 [node name="TileMap" parent="." index="0"]
 layer_0/tile_data = PackedInt32Array()
