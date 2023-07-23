@@ -1,11 +1,8 @@
-res://Menus/MainMenu.tscn
-res://UI/default_theme.tres
-res://Menus/MainMenu.gd
-res://GameStatus.gd
 res://World/Maps/Map.tscn
+res://UI/default_theme.tres
 res://World/Maps/Flowershore.tscn
+res://Menus/MainMenu.tscn
 res://Characters/Player.tscn
 res://Characters/Character.tscn
-res://UI/SceneTransition.gd
-res://World/Maps/Map.gd
-res://Characters/Player.gd
+res://World/Maps/FlowershoreHospital.tscn
+res://World/Maps/FlowershoreHouse1.tscn
