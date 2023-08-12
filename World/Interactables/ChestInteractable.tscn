@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://clqls5g0kcf6p"]
+
+[ext_resource type="PackedScene" uid="uid://b3i28rin2opce" path="res://World/Interactables/Interactable.tscn" id="1_5yr02"]
+[ext_resource type="Script" path="res://World/Interactables/ChestInteractable.gd" id="2_m8l3r"]
+
+[node name="ChestInteractable" instance=ExtResource("1_5yr02")]
+script = ExtResource("2_m8l3r")
+item = "HealingPotion"
+interactableType = 2
+verb = "Open"

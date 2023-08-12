@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MedicineItem" load_steps=2 format=3 uid="uid://dondyxstnsjga"]
+
+[ext_resource type="Script" path="res://Items/MedicineItem.gd" id="1_47nwn"]
+
+[resource]
+script = ExtResource("1_47nwn")
+stat = 0
+amount = 60
+description = "Heals a monster for 60 HP"

@@ -8,7 +8,7 @@ var texts = []
 var currentIx = -1
 
 
-func Activate(dialogue):
+"""func Activate(dialogue):
 	texts = dialogue.dialogue
 	Next()
 	
@@ -18,6 +18,16 @@ func Activate(dialogue):
 	else:
 		$NPCName.hide()
 	
+	show()"""
+func Activate(t, speaker=""):
+	texts = t
+	Next()
+	
+	if speaker:
+		$NPCName/MarginContainer/Label.text = speaker
+		$NPCName.show()
+	else:
+		$NPCName.hide()
 	show()
 
 func Close():

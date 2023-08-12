@@ -19,3 +19,9 @@ const LAYERS = {
 	"Objects": 3,
 	"Decorations": 4
 }
+
+const MAPS = [
+	"Flowershore",
+	"FlowershoreHospital",
+	"FlowershoreHouse1"
+]

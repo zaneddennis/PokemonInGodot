@@ -1,10 +1,12 @@
 extends "res://Characters/Character.gd"
+class_name Player
 
 
 const INTERACTION_RANGE = 8
 
 enum INPUT_MODE {NORMAL, DIALOGUE, START}
 
+@export var map: Node2D
 @export var ui: Control
 
 
@@ -16,7 +18,6 @@ var potentialInteract = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	super()
-	print(INPUT_MODE)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,8 +50,9 @@ func ProcessInteraction():
 	
 	if $RayCast2D.is_colliding():
 		var target = $RayCast2D.get_collider()
-		ui.ActivateInteract("Press [SPACE] to " + target.verb)
-		potentialInteract = target
+		if target:
+			ui.ActivateInteract("Press [SPACE] to " + target.verb)
+			potentialInteract = target
 	else:
 		ui.CloseInteract()
 		potentialInteract = null
@@ -61,13 +63,13 @@ func UpdateGameStatus():
 
 
 func InputNormal():
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("walk_up"):
 		Walk("up")
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("walk_down"):
 		Walk("down")
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("walk_left"):
 		Walk("left")
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("walk_right"):
 		Walk("right")
 	else:
 		StopWalk()
@@ -100,6 +102,11 @@ func Interact(target):
 		ui.CloseInteract()
 		potentialInteract = null
 		EnterDoor(target)
+	elif target.interactableType == Interactable.INTERACTABLE_TYPE.CHEST:
+		GameStatus.playerInventory.AddItem(target.item, 1)
+		ui.ActivateDialogue(target)
+		inputMode = INPUT_MODE.DIALOGUE
+		map.RemoveInteractable(target)
 
 
 func Start():

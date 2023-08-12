@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BallItem" load_steps=2 format=3 uid="uid://s0qxdipievx7"]
+
+[ext_resource type="Script" path="res://Items/BallItem.gd" id="1_knr3w"]
+
+[resource]
+script = ExtResource("1_knr3w")
+power = 1
+description = "Throw this at a wild monster to catch it"

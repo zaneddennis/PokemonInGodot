@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BallItem" load_steps=2 format=3 uid="uid://vpfhfuig3uo"]
+
+[ext_resource type="Script" path="res://Items/BallItem.gd" id="1_0dqct"]
+
+[resource]
+script = ExtResource("1_0dqct")
+power = 2
+description = "Improved capture ball"

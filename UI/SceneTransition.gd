@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 var fromMenu = false
+var newGame = false
 
 var newDoor = ""
 var newDoorDir = ""
@@ -14,18 +15,21 @@ func FromDoor(door):
 	newDoor = door.destinationDoor
 	newDoorDir = door.destinationDir
 	
+	get_node("/root/Map").Close()
+	
 	get_tree().change_scene_to_file(door.GetDestinationPath())
 	
 	$AnimationPlayer.play_backwards("fade")
 
 
-func FromMenu():
+func FromMenu(ng):
 	fromMenu = true
-	
+	newGame = ng
 	get_tree().change_scene_to_file("res://World/Maps/%s.tscn" % GameStatus.currentMap)
 
 
 func Reset():
 	fromMenu = false
+	newGame = false
 	newDoor = ""
 	newDoorDir = ""

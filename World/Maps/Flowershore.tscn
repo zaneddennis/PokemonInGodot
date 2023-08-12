@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1wf32xb5yy8g"]
+[gd_scene load_steps=8 format=3 uid="uid://b1wf32xb5yy8g"]
 
-[ext_resource type="PackedScene" uid="uid://xgw5hbfb5ycv" path="res://World/Maps/Map.tscn" id="1_2houm"]
+[ext_resource type="PackedScene" uid="uid://77teqjf2eey" path="res://World/Maps/Map.tscn" id="1_2houm"]
 [ext_resource type="PackedScene" uid="uid://d364y4mor0to6" path="res://World/Interactables/DoorInteractable.tscn" id="3_6j0n4"]
 [ext_resource type="PackedScene" uid="uid://i1pmuts22bdk" path="res://Characters/NPC.tscn" id="3_kfpqt"]
 [ext_resource type="PackedScene" uid="uid://bb58fef22vb1m" path="res://World/Interactables/DialogueInteractable.tscn" id="3_x3jbo"]
+[ext_resource type="PackedScene" uid="uid://clqls5g0kcf6p" path="res://World/Interactables/ChestInteractable.tscn" id="4_wu2fm"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_80b1o"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_3ocvt"]
 
 [node name="Map" instance=ExtResource("1_2houm")]
 mapName = "Flowershore"
@@ -31,6 +36,9 @@ destination = "FlowershoreHospital"
 position = Vector2(400, 176)
 destination = "FlowershoreHouse1"
 
+[node name="ChestInteractable" parent="Interactables" index="4" instance=ExtResource("4_wu2fm")]
+position = Vector2(304, 408)
+
 [node name="Player" parent="Characters" index="0"]
 position = Vector2(304, 240)
 
@@ -47,5 +55,17 @@ dialogue = ["Hi! I will be your rival in this game!", "This means I will fight y
 [node name="UIManager" parent="UICanvas" index="0"]
 offset_top = -16.0
 offset_bottom = -16.0
+
+[node name="Item" parent="UICanvas/UIManager/Start/Inventory/Categories" index="0"]
+button_group = SubResource("ButtonGroup_80b1o")
+
+[node name="Medicine" parent="UICanvas/UIManager/Start/Inventory/Categories" index="1"]
+button_group = SubResource("ButtonGroup_3ocvt")
+
+[node name="Ball" parent="UICanvas/UIManager/Start/Inventory/Categories" index="2"]
+button_group = SubResource("ButtonGroup_80b1o")
+
+[node name="Key" parent="UICanvas/UIManager/Start/Inventory/Categories" index="3"]
+button_group = SubResource("ButtonGroup_80b1o")
 
 [editable path="Characters/NPC"]

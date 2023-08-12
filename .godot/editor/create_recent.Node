@@ -1,6 +1,11 @@
+Node
 Button
 Label
+GridContainer
+HSeparator
 VBoxContainer
+ScrollContainer
+VSeparator
 Panel
 Control
 OptionButton
@@ -19,7 +24,6 @@ Node2D
 CollisionShape2D
 Area2D
 Camera2D
-Node
 Sprite2D
 AnimatedSprite2D
 CharacterBody2D

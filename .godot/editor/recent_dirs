@@ -1,8 +1,11 @@
+res://World/Interactables
 res://UI/Start
+res://Characters
+res://Items
+C:/Users/zaned/OneDrive/Documents/Godot4Projects/PokemonInGodot/Items
+res://Utility
+res://Items/ItemData
 res://UI
 res://
 res://Menus
-res://Characters
 res://World/Maps
-res://World/Interactables
-res://Utility
