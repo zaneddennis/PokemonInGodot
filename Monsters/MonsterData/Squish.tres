@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=2 format=3 uid="uid://dyosc1a257t8v"]
+
+[ext_resource type="Script" path="res://Monsters/Monster.gd" id="1_j32vy"]
+
+[resource]
+script = ExtResource("1_j32vy")
+name = "Squish"
+index = 2
+type = 1
+hp = 45.0
+attack = 37.0
+defense = 38.0
+specialAttack = 31.0
+specialDefense = 44.0
+speed = 34.0

@@ -1,0 +1,458 @@
+[gd_scene load_steps=22 format=3 uid="uid://dsgtohj6g64t4"]
+
+[ext_resource type="Theme" uid="uid://b1dqrb0hsk51q" path="res://UI/default_theme.tres" id="1_aa6nh"]
+[ext_resource type="Texture2D" uid="uid://cqnn03jxb6afa" path="res://Monsters/PokemonPokemonSprites.png" id="1_wct41"]
+[ext_resource type="Script" path="res://Battles/BattleManager.gd" id="2_su81f"]
+[ext_resource type="Resource" uid="uid://e1sg3founqnr" path="res://Battles/Moves/MoveData/Tackle.tres" id="3_1gi5t"]
+[ext_resource type="Script" path="res://Monsters/MonsterInstance.gd" id="3_3l35g"]
+[ext_resource type="PackedScene" uid="uid://b6kgtlegiirnn" path="res://Battles/UI/MonsterStatusWidget.tscn" id="3_g8u5i"]
+[ext_resource type="Resource" uid="uid://dyosc1a257t8v" path="res://Monsters/MonsterData/Squish.tres" id="4_csofg"]
+[ext_resource type="Resource" uid="uid://bnar2kf5dwn6x" path="res://Battles/Moves/MoveData/Splash.tres" id="4_es8et"]
+[ext_resource type="Resource" uid="uid://ceek36q1akp14" path="res://Monsters/MonsterData/Chipfunk.tres" id="4_xub3k"]
+[ext_resource type="Resource" uid="uid://kxx0qv5y12w7" path="res://Monsters/MonsterData/Sparry.tres" id="5_6jptx"]
+[ext_resource type="Script" path="res://Monsters/Party.gd" id="5_rscyx"]
+[ext_resource type="Resource" uid="uid://dxgxdigpyg4nf" path="res://Battles/Moves/MoveData/Peck.tres" id="7_p1hta"]
+[ext_resource type="PackedScene" uid="uid://dwwpuplg8wabw" path="res://UI/Start/InventoryItemButton.tscn" id="10_bq0fj"]
+[ext_resource type="Script" path="res://Battles/BattleReportPanel.gd" id="10_rxf3i"]
+
+[sub_resource type="Resource" id="Resource_5kf8q"]
+script = ExtResource("3_3l35g")
+species = ExtResource("4_csofg")
+xp = 450
+hp = 0
+conditions = []
+moves = Array[Resource("res://Battles/Moves/Move.gd")]([ExtResource("3_1gi5t"), ExtResource("4_es8et")])
+
+[sub_resource type="Resource" id="Resource_ybuub"]
+script = ExtResource("3_3l35g")
+species = ExtResource("5_6jptx")
+xp = 130
+hp = 0
+conditions = []
+moves = Array[Resource("res://Battles/Moves/Move.gd")]([ExtResource("7_p1hta")])
+
+[sub_resource type="Resource" id="Resource_1wm5n"]
+script = ExtResource("5_rscyx")
+data = Array[ExtResource("3_3l35g")]([SubResource("Resource_5kf8q"), SubResource("Resource_ybuub")])
+
+[sub_resource type="Resource" id="Resource_88b1r"]
+script = ExtResource("3_3l35g")
+species = ExtResource("4_xub3k")
+xp = 300
+hp = 0
+conditions = []
+moves = Array[Resource("res://Battles/Moves/Move.gd")]([ExtResource("3_1gi5t")])
+
+[sub_resource type="Resource" id="Resource_lv0dk"]
+script = ExtResource("5_rscyx")
+data = Array[ExtResource("3_3l35g")]([SubResource("Resource_88b1r")])
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxvih"]
+atlas = ExtResource("1_wct41")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cobtu"]
+atlas = ExtResource("1_wct41")
+region = Rect2(0, 0, 64, 64)
+
+[node name="Battle" type="CanvasLayer"]
+
+[node name="Battle" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_aa6nh")
+script = ExtResource("2_su81f")
+playerParty = SubResource("Resource_1wm5n")
+enemyParty = SubResource("Resource_lv0dk")
+
+[node name="PlayerMonster" type="TextureRect" parent="Battle"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -100.0
+offset_right = -112.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_bxvih")
+flip_h = true
+
+[node name="MonsterStatusWidget" parent="Battle/PlayerMonster" instance=ExtResource("3_g8u5i")]
+layout_mode = 1
+offset_left = -128.0
+offset_top = 72.0
+offset_right = 128.0
+offset_bottom = 124.0
+
+[node name="EnemyMonster" type="TextureRect" parent="Battle"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 120.0
+offset_top = -100.0
+offset_right = 248.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_cobtu")
+
+[node name="MonsterStatusWidget" parent="Battle/EnemyMonster" instance=ExtResource("3_g8u5i")]
+layout_mode = 1
+offset_left = -128.0
+offset_top = -120.0
+offset_right = 128.0
+offset_bottom = -68.0
+
+[node name="XPBar" parent="Battle/EnemyMonster/MonsterStatusWidget" index="4"]
+visible = false
+
+[node name="Panel" type="Panel" parent="Battle"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+offset_right = -176.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("10_rxf3i")
+
+[node name="Report" type="Label" parent="Battle/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "A wild BONFROG wants to fight!"
+
+[node name="Fight" type="Control" parent="Battle/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Battle/Panel/Fight"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Move0" type="Button" parent="Battle/Panel/Fight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Move1" type="Button" parent="Battle/Panel/Fight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Move2" type="Button" parent="Battle/Panel/Fight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Move3" type="Button" parent="Battle/Panel/Fight/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Party" type="Control" parent="Battle/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Battle/Panel/Party"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MonsterStatusWidget" parent="Battle/Panel/Party/HBoxContainer" instance=ExtResource("3_g8u5i")]
+custom_minimum_size = Vector2(108, 48)
+layout_mode = 2
+
+[node name="Species" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget" index="0"]
+offset_right = 76.0
+theme_override_font_sizes/font_size = 10
+
+[node name="Level" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget" index="1"]
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 64.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 0
+
+[node name="HP" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget" index="2"]
+offset_left = 40.0
+offset_top = 12.0
+offset_right = 104.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 10
+
+[node name="HPBar" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget" index="3"]
+offset_top = 28.0
+offset_right = 96.0
+
+[node name="XPBar" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget" index="4"]
+visible = false
+offset_right = 120.0
+
+[node name="MonsterStatusWidget2" parent="Battle/Panel/Party/HBoxContainer" instance=ExtResource("3_g8u5i")]
+custom_minimum_size = Vector2(108, 48)
+layout_mode = 2
+
+[node name="Species" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget2" index="0"]
+offset_right = 76.0
+theme_override_font_sizes/font_size = 10
+
+[node name="Level" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget2" index="1"]
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 64.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 0
+
+[node name="HP" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget2" index="2"]
+offset_left = 40.0
+offset_top = 12.0
+offset_right = 104.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 10
+
+[node name="HPBar" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget2" index="3"]
+offset_top = 28.0
+offset_right = 96.0
+
+[node name="XPBar" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget2" index="4"]
+visible = false
+offset_right = 120.0
+
+[node name="MonsterStatusWidget3" parent="Battle/Panel/Party/HBoxContainer" instance=ExtResource("3_g8u5i")]
+custom_minimum_size = Vector2(108, 48)
+layout_mode = 2
+
+[node name="Species" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget3" index="0"]
+offset_right = 76.0
+theme_override_font_sizes/font_size = 10
+
+[node name="Level" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget3" index="1"]
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 64.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 0
+
+[node name="HP" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget3" index="2"]
+offset_left = 40.0
+offset_top = 12.0
+offset_right = 104.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 10
+
+[node name="HPBar" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget3" index="3"]
+offset_top = 28.0
+offset_right = 96.0
+
+[node name="XPBar" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget3" index="4"]
+visible = false
+offset_right = 120.0
+
+[node name="MonsterStatusWidget4" parent="Battle/Panel/Party/HBoxContainer" instance=ExtResource("3_g8u5i")]
+custom_minimum_size = Vector2(108, 48)
+layout_mode = 2
+
+[node name="Species" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget4" index="0"]
+offset_right = 76.0
+theme_override_font_sizes/font_size = 10
+
+[node name="Level" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget4" index="1"]
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 64.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 0
+
+[node name="HP" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget4" index="2"]
+offset_left = 40.0
+offset_top = 12.0
+offset_right = 104.0
+offset_bottom = 38.0
+theme_override_font_sizes/font_size = 10
+
+[node name="HPBar" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget4" index="3"]
+offset_top = 28.0
+offset_right = 96.0
+
+[node name="XPBar" parent="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget4" index="4"]
+visible = false
+offset_right = 120.0
+
+[node name="Item" type="Panel" parent="Battle/Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -176.0
+offset_top = -152.0
+offset_right = -16.0
+grow_horizontal = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Battle/Panel/Item"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Battle/Panel/Item/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="InventoryItemButton" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton2" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton3" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton4" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton5" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton6" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton7" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton8" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton9" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="InventoryItemButton10" parent="Battle/Panel/Item/ScrollContainer/VBoxContainer" instance=ExtResource("10_bq0fj")]
+layout_mode = 2
+
+[node name="ChooseAction" type="Panel" parent="Battle"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -120.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="GridContainer" type="GridContainer" parent="Battle/ChooseAction"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 2
+
+[node name="Fight" type="Button" parent="Battle/ChooseAction/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "FIGHT"
+
+[node name="Item" type="Button" parent="Battle/ChooseAction/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "ITEM"
+
+[node name="Switch" type="Button" parent="Battle/ChooseAction/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "SWITCH"
+
+[node name="Flee" type="Button" parent="Battle/ChooseAction/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "RUN"
+
+[node name="Stage" type="Label" parent="Battle"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Stage: []"
+
+[connection signal="pressed" from="Battle/ChooseAction/GridContainer/Fight" to="Battle" method="_on_fight_pressed"]
+[connection signal="pressed" from="Battle/ChooseAction/GridContainer/Item" to="Battle" method="_on_item_pressed"]
+[connection signal="pressed" from="Battle/ChooseAction/GridContainer/Switch" to="Battle" method="_on_switch_pressed"]
+[connection signal="pressed" from="Battle/ChooseAction/GridContainer/Flee" to="Battle" method="_on_flee_pressed"]
+
+[editable path="Battle/EnemyMonster/MonsterStatusWidget"]
+[editable path="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget"]
+[editable path="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget2"]
+[editable path="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget3"]
+[editable path="Battle/Panel/Party/HBoxContainer/MonsterStatusWidget4"]

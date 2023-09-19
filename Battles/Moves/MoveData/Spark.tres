@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Move" load_steps=2 format=3 uid="uid://n1q5kfprodtt"]
+
+[ext_resource type="Script" path="res://Battles/Moves/Move.gd" id="1_nk7mr"]
+
+[resource]
+script = ExtResource("1_nk7mr")
+name = "Spark"
+type = 0
+damageType = 1
+power = 15
+stat = ""
+statChange = 0.0

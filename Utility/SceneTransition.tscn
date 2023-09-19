@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://vxx783ge4fo8"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://UI/SceneTransition.gd" id="1_0k26w"]
+[ext_resource type="Script" path="res://Utility/SceneTransition.gd" id="1_0k26w"]
+
 
 [sub_resource type="Animation" id="Animation_lnto5"]
 length = 0.001

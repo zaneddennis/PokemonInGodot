@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Move" load_steps=2 format=3 uid="uid://bu16ys2wyv7mb"]
+
+[ext_resource type="Script" path="res://Battles/Moves/Move.gd" id="1_ir0ct"]
+
+[resource]
+script = ExtResource("1_ir0ct")
+name = "Seed Toss"
+type = 2
+damageType = 0
+power = 15
+stat = ""
+statChange = 0.0

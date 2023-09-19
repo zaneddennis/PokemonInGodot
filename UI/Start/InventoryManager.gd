@@ -2,8 +2,6 @@ extends Panel
 
 @export var InventoryItemButton : PackedScene
 
-#@export var player : Player
-
 var lastCategory = ""
 
 

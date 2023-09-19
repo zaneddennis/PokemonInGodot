@@ -36,6 +36,5 @@ func ToStr():
 	return str(data)
 
 func FromStr(d):
-	print(d)
 	d = JSON.parse_string(d)
 	data = d

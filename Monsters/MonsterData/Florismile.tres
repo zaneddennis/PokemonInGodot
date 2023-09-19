@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=2 format=3 uid="uid://cvcfa6yadhika"]
+
+[ext_resource type="Script" path="res://Monsters/Monster.gd" id="1_m48ke"]
+
+[resource]
+script = ExtResource("1_m48ke")
+name = "Florismile"
+index = 3
+type = 2
+hp = 34.0
+attack = 28.0
+defense = 32.0
+specialAttack = 48.0
+specialDefense = 35.0
+speed = 43.0

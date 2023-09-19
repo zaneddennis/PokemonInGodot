@@ -5,3 +5,4 @@
 [node name="Database" type="Node"]
 script = ExtResource("1_bcsxp")
 itemDataDir = "res://Items/ItemData"
+monsterDataDir = "res://Monsters/MonsterData"

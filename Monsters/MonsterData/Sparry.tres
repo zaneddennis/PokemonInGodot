@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Monster" load_steps=2 format=3 uid="uid://kxx0qv5y12w7"]
+
+[ext_resource type="Script" path="res://Monsters/Monster.gd" id="1_du4mq"]
+
+[resource]
+script = ExtResource("1_du4mq")
+name = "Sparry"
+index = 5
+type = 0
+hp = 24.0
+attack = 38.0
+defense = 26.0
+specialAttack = 23.0
+specialDefense = 31.0
+speed = 46.0

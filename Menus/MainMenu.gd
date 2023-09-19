@@ -16,14 +16,15 @@ func ActivateContinue():
 
 
 func NewGame():
-	GameStatus.playerName = $HBoxContainer/Content/NewGame/VBoxContainer/PlayerName.text
-	GameStatus.playerGender = $HBoxContainer/Content/NewGame/VBoxContainer/OptionButton.get_selected_id()
-	GameStatus.currentMap = "Flowershore"
-	SceneTransition.FromMenu(true)
+	GameStatus.NewGame(
+		$HBoxContainer/Content/NewGame/VBoxContainer/PlayerName.text,
+		$HBoxContainer/Content/NewGame/VBoxContainer/OptionButton.get_selected_id()
+	)
+	SceneTransition.FromNewGame()
 
 
 func ContinueGame():
-	SceneTransition.FromMenu(false)
+	SceneTransition.FromContinue()
 
 
 func _on_newgame_pressed():

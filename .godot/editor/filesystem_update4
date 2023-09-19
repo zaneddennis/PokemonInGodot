@@ -1,2 +1,10 @@
-res://World/Maps/Flowershore.tscn
+res://Characters/Character.tscn
 res://UI/default_theme.tres
+res://Characters/Character.gd
+res://Menus/MainMenu.tscn
+res://GameStatus.tscn
+res://World/Maps/Map.tscn
+res://World/Maps/Flowershore.tscn
+res://World/Maps/RouteA.tscn
+res://Characters/Player.tscn
+res://World/Maps/Map.gd

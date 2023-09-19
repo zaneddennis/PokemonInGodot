@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6kgtlegiirnn"]
+
+[ext_resource type="Theme" uid="uid://b1dqrb0hsk51q" path="res://UI/default_theme.tres" id="1_kjqhl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_phatd"]
+bg_color = Color(0.27451, 0.509804, 0.196078, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6n7e"]
+bg_color = Color(0.478431, 0.211765, 0.482353, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MonsterStatusWidget" type="Panel"]
+custom_minimum_size = Vector2(256, 48)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -24.0
+offset_right = 96.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_kjqhl")
+
+[node name="Species" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 128.0
+offset_bottom = 30.0
+text = "Species"
+
+[node name="Level" type="Label" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 4.0
+offset_right = 248.0
+offset_bottom = 30.0
+text = "Lv XX"
+horizontal_alignment = 2
+
+[node name="HP" type="Label" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 4.0
+offset_right = 184.0
+offset_bottom = 30.0
+text = "HP: XX/XX"
+horizontal_alignment = 1
+
+[node name="HPBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 248.0
+offset_bottom = 40.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_phatd")
+value = 50.0
+show_percentage = false
+
+[node name="XPBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 44.0
+offset_right = 248.0
+offset_bottom = 48.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_r6n7e")
+value = 50.0
+show_percentage = false

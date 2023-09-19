@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Move" load_steps=2 format=3 uid="uid://bnar2kf5dwn6x"]
+
+[ext_resource type="Script" path="res://Battles/Moves/Move.gd" id="1_qdcqj"]
+
+[resource]
+script = ExtResource("1_qdcqj")
+name = "Splash"
+type = 1
+damageType = 1
+power = 15
+stat = ""
+statChange = 0.0

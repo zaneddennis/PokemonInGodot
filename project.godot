@@ -19,9 +19,9 @@ config/icon="res://icon.svg"
 
 Constants="*res://Utility/Constants.gd"
 Debug="*res://Utility/Debug.gd"
-SceneTransition="*res://UI/SceneTransition.tscn"
-GameStatus="*res://GameStatus.gd"
+SceneTransition="*res://Utility/SceneTransition.tscn"
 Database="*res://Utility/Database.tscn"
+GameStatus="*res://GameStatus.tscn"
 
 [display]
 

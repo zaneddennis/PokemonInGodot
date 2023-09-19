@@ -1,6 +1,9 @@
 extends Control
 
 
+func _on_party_pressed():
+	$Party.Activate()
+
 
 func _on_inventory_pressed():
 	$Inventory.Activate()

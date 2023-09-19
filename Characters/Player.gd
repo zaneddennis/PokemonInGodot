@@ -27,6 +27,8 @@ func _process(delta):
 	ProcessInteraction()
 	
 	UpdateGameStatus()
+	
+	# check for encounter?
 
 
 func _input(event):

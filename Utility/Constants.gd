@@ -1,6 +1,8 @@
 extends Node
 
 
+enum DAMAGE_TYPES {PHYSICAL, SPECIAL}
+
 const DIRECTIONS = {
 	"up": Vector2(0, -1),
 	"down": Vector2(0, 1),
@@ -21,7 +23,15 @@ const LAYERS = {
 }
 
 const MAPS = [
+	"empty_map",
 	"Flowershore",
 	"FlowershoreHospital",
-	"FlowershoreHouse1"
+	"FlowershoreHouse1",
+	"RouteA"
 ]
+
+const MAX_LEVEL = 10
+
+const MAX_PARTY_SIZE = 4
+
+enum TYPES {FIRE, WATER, GRASS, NORMAL, FLYING, ROCK}
