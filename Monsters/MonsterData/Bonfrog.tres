@@ -1,6 +1,9 @@
-[gd_resource type="Resource" script_class="Monster" load_steps=2 format=3 uid="uid://1m18qgec7381"]
+[gd_resource type="Resource" script_class="Monster" load_steps=5 format=3 uid="uid://1m18qgec7381"]
 
+[ext_resource type="Resource" uid="uid://e1sg3founqnr" path="res://Battles/Moves/MoveData/Tackle.tres" id="1_dkg1i"]
 [ext_resource type="Script" path="res://Monsters/Monster.gd" id="1_gs8kr"]
+[ext_resource type="Resource" uid="uid://n1q5kfprodtt" path="res://Battles/Moves/MoveData/Spark.tres" id="2_hvlof"]
+[ext_resource type="Resource" uid="uid://c4alo2fmu71at" path="res://Battles/Moves/MoveData/Engulf.tres" id="3_5gfpc"]
 
 [resource]
 script = ExtResource("1_gs8kr")
@@ -13,3 +16,8 @@ defense = 36.0
 specialAttack = 44.0
 specialDefense = 32.0
 speed = 35.0
+move_table = {
+1: ExtResource("1_dkg1i"),
+3: ExtResource("2_hvlof"),
+8: ExtResource("3_5gfpc")
+}

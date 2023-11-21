@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Move" load_steps=2 format=3 uid="uid://c4alo2fmu71at"]
+
+[ext_resource type="Script" path="res://Battles/Moves/Move.gd" id="1_465cv"]
+
+[resource]
+script = ExtResource("1_465cv")
+name = "Engulf"
+type = 0
+damageType = 1
+power = 40
+stat = ""
+statChange = 0.0

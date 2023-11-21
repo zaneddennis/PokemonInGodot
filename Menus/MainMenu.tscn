@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8hbdjwva5wxw"]
+[gd_scene load_steps=8 format=3 uid="uid://b8hbdjwva5wxw"]
 
 [ext_resource type="Theme" uid="uid://b1dqrb0hsk51q" path="res://UI/default_theme.tres" id="1_i2rol"]
 [ext_resource type="Script" path="res://Menus/MainMenu.gd" id="1_ubn04"]
 [ext_resource type="Texture2D" uid="uid://c4jo14yp6tyhj" path="res://Characters/PokemonCharacterSprites.png" id="3_j1hb1"]
+[ext_resource type="AudioStream" uid="uid://drh83k156nept" path="res://Music/On The Move.ogg" id="4_8d7le"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xbcss"]
 font_size = 32
@@ -181,6 +182,11 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Exit to Desktop"
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8d7le")
+volume_db = -8.0
+autoplay = true
 
 [connection signal="pressed" from="HBoxContainer/Content/NewGame/Start/Button" to="." method="_on_newgame_start_pressed"]
 [connection signal="pressed" from="HBoxContainer/Menu/ColorRect/MarginContainer/VBoxContainer/Continue/Button" to="." method="_on_continue_pressed"]

@@ -22,6 +22,7 @@ Debug="*res://Utility/Debug.gd"
 SceneTransition="*res://Utility/SceneTransition.tscn"
 Database="*res://Utility/Database.tscn"
 GameStatus="*res://GameStatus.tscn"
+Util="*res://Util.gd"
 
 [display]
 

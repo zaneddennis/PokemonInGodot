@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Move" load_steps=2 format=3 uid="uid://ckjahynrj2fjj"]
+
+[ext_resource type="Script" path="res://Battles/Moves/Move.gd" id="1_fm4jv"]
+
+[resource]
+script = ExtResource("1_fm4jv")
+name = "Immerse"
+type = 1
+damageType = 1
+power = 35
+stat = "specialDefense"
+statChange = -1.0

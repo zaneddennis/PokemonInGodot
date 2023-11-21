@@ -20,6 +20,12 @@ func ActivateDialogue(dialogue):
 	elif dialogue is ChestInteractable:
 		var texts = ["Found a %s!" % [dialogue.item.capitalize()]]
 		$Dialogue.Activate(texts)
+	elif dialogue is Interactable:
+		if dialogue.interactableType == Interactable.INTERACTABLE_TYPE.HEAL:
+			var texts = ["Your party has been fully healed!"]
+			$Dialogue.Activate(texts)
+	else:
+		assert(false)
 
 func AdvanceDialogue():
 	$Dialogue.Next()

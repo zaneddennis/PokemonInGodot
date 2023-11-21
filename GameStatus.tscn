@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://debkl3t5m3xmb"]
+[gd_scene load_steps=11 format=3 uid="uid://debkl3t5m3xmb"]
 
 [ext_resource type="Script" path="res://GameStatus.gd" id="1_cjoes"]
+[ext_resource type="Script" path="res://Monsters/MonsterInstance.gd" id="2_62jq8"]
+[ext_resource type="Resource" uid="uid://e1sg3founqnr" path="res://Battles/Moves/MoveData/Tackle.tres" id="2_r4y2k"]
+[ext_resource type="Resource" uid="uid://1m18qgec7381" path="res://Monsters/MonsterData/Bonfrog.tres" id="3_3l1le"]
+[ext_resource type="Resource" uid="uid://n1q5kfprodtt" path="res://Battles/Moves/MoveData/Spark.tres" id="3_20ses"]
+[ext_resource type="Resource" uid="uid://kxx0qv5y12w7" path="res://Monsters/MonsterData/Sparry.tres" id="4_m16n0"]
+[ext_resource type="Script" path="res://Monsters/Party.gd" id="5_gga4r"]
+
+[sub_resource type="Resource" id="Resource_qf4cc"]
+script = ExtResource("2_62jq8")
+species = ExtResource("3_3l1le")
+xp = 150
+hp = 13
+conditions = []
+moves = Array[Resource("res://Battles/Moves/Move.gd")]([ExtResource("2_r4y2k"), ExtResource("3_20ses")])
+
+[sub_resource type="Resource" id="Resource_a23ho"]
+script = ExtResource("2_62jq8")
+species = ExtResource("4_m16n0")
+xp = 0
+hp = 10
+conditions = []
+moves = Array[Resource("res://Battles/Moves/Move.gd")]([ExtResource("2_r4y2k")])
+
+[sub_resource type="Resource" id="Resource_c5tvl"]
+script = ExtResource("5_gga4r")
+data = Array[ExtResource("2_62jq8")]([SubResource("Resource_qf4cc"), SubResource("Resource_a23ho")])
 
 [node name="GameStatus" type="Node"]
 script = ExtResource("1_cjoes")
+playerParty = SubResource("Resource_c5tvl")

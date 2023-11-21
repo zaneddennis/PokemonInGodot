@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://77teqjf2eey"]
+[gd_scene load_steps=28 format=3 uid="uid://77teqjf2eey"]
 
 [ext_resource type="Texture2D" uid="uid://dfhcqypho4cdf" path="res://World/Art/PokemonTilesetBase.png" id="1_d23ix"]
 [ext_resource type="Texture2D" uid="uid://c0prhgwqb6bdf" path="res://World/Art/PokemonTilesetObjects.png" id="2_8001x"]
@@ -14,8 +14,11 @@
 [ext_resource type="Script" path="res://UI/Start/PartyManager.gd" id="11_31vmc"]
 [ext_resource type="Script" path="res://UI/Start/ExitManager.gd" id="11_f4f5o"]
 [ext_resource type="Script" path="res://UI/Start/InventoryManager.gd" id="11_fnnfj"]
+[ext_resource type="Script" path="res://UI/Start/IndexManager.gd" id="11_niww1"]
 [ext_resource type="Script" path="res://UI/Start/SaveManager.gd" id="11_sw4ve"]
+[ext_resource type="Texture2D" uid="uid://cqnn03jxb6afa" path="res://Monsters/PokemonPokemonSprites.png" id="12_j0o11"]
 [ext_resource type="PackedScene" uid="uid://dd056q1p6827" path="res://UI/Start/PartyMonsterWidget.tscn" id="12_nnugg"]
+[ext_resource type="PackedScene" uid="uid://dsgtohj6g64t4" path="res://Battles/Battle.tscn" id="17_pojx5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nuhy4"]
 resource_name = "Base"
@@ -1239,9 +1242,9 @@ offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="List" type="Button" parent="UICanvas/UIManager/Start/Start/VBoxContainer"]
+[node name="Index" type="Button" parent="UICanvas/UIManager/Start/Start/VBoxContainer"]
 layout_mode = 2
-text = "List"
+text = "Index"
 flat = true
 alignment = 0
 
@@ -1276,6 +1279,146 @@ layout_mode = 2
 text = "Exit Game"
 flat = true
 alignment = 0
+
+[node name="Index" type="Panel" parent="UICanvas/UIManager/Start"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -160.0
+offset_right = 128.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_niww1")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UICanvas/UIManager/Start/Index"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -8.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="UICanvas/UIManager/Start/Index/ScrollContainer"]
+custom_minimum_size = Vector2(0, 384)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("12_j0o11")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -160.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Bonfrog" type="Control" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer/Bonfrog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1. Bonfrog
+[Fire]"
+vertical_alignment = 1
+
+[node name="Squish" type="Control" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer/Squish"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2. Squish
+[Water]"
+vertical_alignment = 1
+
+[node name="Florismile" type="Control" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer/Florismile"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "3. Florismile
+[Grass]"
+vertical_alignment = 1
+
+[node name="Chipfunk" type="Control" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer/Chipfunk"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "4. Chipfunk
+[Normal]"
+vertical_alignment = 1
+
+[node name="Sparry" type="Control" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer/Sparry"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5. Sparry
+[Flying]"
+vertical_alignment = 1
+
+[node name="Bullder" type="Control" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UICanvas/UIManager/Start/Index/ScrollContainer/Control/VBoxContainer/Bullder"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "6. Bullder
+[Rock]"
+vertical_alignment = 1
 
 [node name="Party" type="Panel" parent="UICanvas/UIManager/Start"]
 visible = false
@@ -1324,6 +1467,15 @@ offset_left = 8.0
 offset_top = 8.0
 offset_right = 112.0
 offset_bottom = 312.0
+
+[node name="Monster" type="Label" parent="UICanvas/UIManager/Start/Party/Stats"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "MONSTER"
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="UICanvas/UIManager/Start/Party/Stats"]
+layout_mode = 2
 
 [node name="XP" type="Label" parent="UICanvas/UIManager/Start/Party/Stats"]
 layout_mode = 2
@@ -1596,7 +1748,15 @@ text = "Exit to Desktop"
 flat = true
 alignment = 0
 
+[node name="Battle" parent="UICanvas" instance=ExtResource("17_pojx5")]
+visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -8.0
+autoplay = true
+
 [connection signal="footstep" from="Characters/Player" to="." method="_on_player_footstep"]
+[connection signal="pressed" from="UICanvas/UIManager/Start/Start/VBoxContainer/Index" to="UICanvas/UIManager/Start" method="_on_index_pressed"]
 [connection signal="pressed" from="UICanvas/UIManager/Start/Start/VBoxContainer/Party" to="UICanvas/UIManager/Start" method="_on_party_pressed"]
 [connection signal="pressed" from="UICanvas/UIManager/Start/Start/VBoxContainer/Inventory" to="UICanvas/UIManager/Start" method="_on_inventory_pressed"]
 [connection signal="pressed" from="UICanvas/UIManager/Start/Start/VBoxContainer/Save" to="UICanvas/UIManager/Start" method="_on_save_pressed"]

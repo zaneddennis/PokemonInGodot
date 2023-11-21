@@ -50,8 +50,28 @@ func _process(delta):
 		BATTLE_STAGE.KO:
 			ProcessKO()
 		
+		BATTLE_STAGE.CONCLUDE:
+			ProcessConclude()
+		
 		_:
 			pass
+
+
+func SetUpWild(species, level):
+	playerParty = GameStatus.playerParty
+	
+	var encounter = MonsterInstance.New(species.name, MonsterInstance.GetXPAt(level), null)
+	enemyParty = Party.new()
+	enemyParty.AddMonster(encounter)
+
+func Activate():
+	assert(playerParty)
+	assert(enemyParty)
+	
+	ActivateDeploy()
+	show()
+	
+	$AudioStreamPlayer.play()
 
 
 func ActivateDeploy():
@@ -211,10 +231,18 @@ func ProcessKO():
 
 
 func ActivateConclude():
+	stage = BATTLE_STAGE.CONCLUDE
+	
 	if ko == playerMonster:
 		$Panel/Report.text = "You have lost the battle!"
 	elif ko == enemyMonster:
 		$Panel/Report.text = "You have won the battle!"
+
+func ProcessConclude():
+	if Input.is_action_just_pressed("interact"):
+		hide()  # close Battle interface
+		$AudioStreamPlayer.stop()
+		get_tree().paused = false
 
 
 func _on_fight_pressed():

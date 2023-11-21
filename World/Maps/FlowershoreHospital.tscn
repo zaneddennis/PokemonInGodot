@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvm6tdygvnhv4"]
+[gd_scene load_steps=5 format=3 uid="uid://bvm6tdygvnhv4"]
 
 [ext_resource type="PackedScene" uid="uid://77teqjf2eey" path="res://World/Maps/Map.tscn" id="1_mkleg"]
 [ext_resource type="PackedScene" uid="uid://d364y4mor0to6" path="res://World/Interactables/DoorInteractable.tscn" id="2_hkxmp"]
+[ext_resource type="PackedScene" uid="uid://b4dax33q6b5po" path="res://World/Interactables/HospitalInteractable.tscn" id="3_80pm5"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_yfpth"]
 
@@ -19,6 +20,9 @@ position = Vector2(80, 112)
 destination = "Flowershore"
 destinationDoor = "HospitalDoor"
 verb = "Exit"
+
+[node name="HospitalInteractable" parent="Interactables" index="1" instance=ExtResource("3_80pm5")]
+position = Vector2(80, 16)
 
 [node name="Player" parent="Characters" index="0"]
 position = Vector2(80, 88)

@@ -109,6 +109,9 @@ func Interact(target):
 		ui.ActivateDialogue(target)
 		inputMode = INPUT_MODE.DIALOGUE
 		map.RemoveInteractable(target)
+	elif target.interactableType == Interactable.INTERACTABLE_TYPE.HEAL:
+		ui.ActivateDialogue(target)
+		inputMode = INPUT_MODE.DIALOGUE
 
 
 func Start():

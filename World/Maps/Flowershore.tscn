@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b1wf32xb5yy8g"]
+[gd_scene load_steps=9 format=3 uid="uid://b1wf32xb5yy8g"]
 
 [ext_resource type="PackedScene" uid="uid://77teqjf2eey" path="res://World/Maps/Map.tscn" id="1_2houm"]
 [ext_resource type="PackedScene" uid="uid://d364y4mor0to6" path="res://World/Interactables/DoorInteractable.tscn" id="3_6j0n4"]
 [ext_resource type="PackedScene" uid="uid://i1pmuts22bdk" path="res://Characters/NPC.tscn" id="3_kfpqt"]
 [ext_resource type="PackedScene" uid="uid://bb58fef22vb1m" path="res://World/Interactables/DialogueInteractable.tscn" id="3_x3jbo"]
 [ext_resource type="PackedScene" uid="uid://clqls5g0kcf6p" path="res://World/Interactables/ChestInteractable.tscn" id="4_wu2fm"]
+[ext_resource type="AudioStream" uid="uid://cd4ophpeafku4" path="res://Music/Journey Across the Blue.ogg" id="6_awmcl"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_80b1o"]
 
@@ -79,5 +80,8 @@ button_group = SubResource("ButtonGroup_80b1o")
 
 [node name="Key" parent="UICanvas/UIManager/Start/Inventory/Categories" index="3"]
 button_group = SubResource("ButtonGroup_80b1o")
+
+[node name="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("6_awmcl")
 
 [editable path="Characters/NPC"]

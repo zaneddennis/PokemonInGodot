@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dsgtohj6g64t4"]
+[gd_scene load_steps=23 format=3 uid="uid://dsgtohj6g64t4"]
 
 [ext_resource type="Theme" uid="uid://b1dqrb0hsk51q" path="res://UI/default_theme.tres" id="1_aa6nh"]
 [ext_resource type="Texture2D" uid="uid://cqnn03jxb6afa" path="res://Monsters/PokemonPokemonSprites.png" id="1_wct41"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://dxgxdigpyg4nf" path="res://Battles/Moves/MoveData/Peck.tres" id="7_p1hta"]
 [ext_resource type="PackedScene" uid="uid://dwwpuplg8wabw" path="res://UI/Start/InventoryItemButton.tscn" id="10_bq0fj"]
 [ext_resource type="Script" path="res://Battles/BattleReportPanel.gd" id="10_rxf3i"]
+[ext_resource type="AudioStream" uid="uid://cdcnd7afl0axr" path="res://Music/I've Got Your Back! (Full).ogg" id="15_k0k3d"]
 
 [sub_resource type="Resource" id="Resource_5kf8q"]
 script = ExtResource("3_3l35g")
@@ -68,6 +69,15 @@ theme = ExtResource("1_aa6nh")
 script = ExtResource("2_su81f")
 playerParty = SubResource("Resource_1wm5n")
 enemyParty = SubResource("Resource_lv0dk")
+
+[node name="ColorRect" type="ColorRect" parent="Battle"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0980392, 0.2, 0.176471, 1)
 
 [node name="PlayerMonster" type="TextureRect" parent="Battle"]
 custom_minimum_size = Vector2(128, 128)
@@ -445,6 +455,10 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Stage: []"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Battle"]
+stream = ExtResource("15_k0k3d")
+volume_db = -12.0
 
 [connection signal="pressed" from="Battle/ChooseAction/GridContainer/Fight" to="Battle" method="_on_fight_pressed"]
 [connection signal="pressed" from="Battle/ChooseAction/GridContainer/Item" to="Battle" method="_on_item_pressed"]

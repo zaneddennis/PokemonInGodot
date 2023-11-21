@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4dax33q6b5po"]
+
+[ext_resource type="PackedScene" uid="uid://b3i28rin2opce" path="res://World/Interactables/Interactable.tscn" id="1_ysvmw"]
+
+[node name="HospitalInteractable" instance=ExtResource("1_ysvmw")]
+interactableType = 4
+verb = "Heal"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mwn8vpcqjkja"]
+[gd_scene load_steps=10 format=3 uid="uid://mwn8vpcqjkja"]
 
 [ext_resource type="PackedScene" uid="uid://77teqjf2eey" path="res://World/Maps/Map.tscn" id="1_8hof2"]
 [ext_resource type="Resource" uid="uid://kxx0qv5y12w7" path="res://Monsters/MonsterData/Sparry.tres" id="2_3pgoi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bb58fef22vb1m" path="res://World/Interactables/DialogueInteractable.tscn" id="3_my86d"]
 [ext_resource type="PackedScene" uid="uid://d364y4mor0to6" path="res://World/Interactables/DoorInteractable.tscn" id="4_8ni4u"]
 [ext_resource type="Resource" uid="uid://dyosc1a257t8v" path="res://Monsters/MonsterData/Squish.tres" id="4_81lgd"]
+[ext_resource type="AudioStream" uid="uid://dodfj2tdxobg8" path="res://Music/Long Road Ahead.ogg" id="8_cgx6b"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_gry5l"]
 
@@ -62,3 +63,9 @@ button_group = SubResource("ButtonGroup_gry5l")
 
 [node name="Key" parent="UICanvas/UIManager/Start/Inventory/Categories" index="3"]
 button_group = SubResource("ButtonGroup_gry5l")
+
+[node name="Battle" parent="UICanvas" index="1"]
+process_mode = 2
+
+[node name="AudioStreamPlayer" parent="." index="4"]
+stream = ExtResource("8_cgx6b")

@@ -7,6 +7,6 @@ script = ExtResource("1_ir0ct")
 name = "Seed Toss"
 type = 2
 damageType = 0
-power = 15
+power = 10
 stat = ""
 statChange = 0.0

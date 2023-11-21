@@ -14,6 +14,8 @@ class_name Monster
 @export_range(10, 50) var specialDefense
 @export_range(10, 50) var speed
 
+@export var move_table: Dictionary
+
 
 func GetTextureCoords():
 	return Rect2(0, 64*(index-1), 64, 64)

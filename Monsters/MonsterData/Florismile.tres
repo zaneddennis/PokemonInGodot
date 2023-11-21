@@ -1,6 +1,8 @@
-[gd_resource type="Resource" script_class="Monster" load_steps=2 format=3 uid="uid://cvcfa6yadhika"]
+[gd_resource type="Resource" script_class="Monster" load_steps=4 format=3 uid="uid://cvcfa6yadhika"]
 
+[ext_resource type="Resource" uid="uid://bu16ys2wyv7mb" path="res://Battles/Moves/MoveData/SeedToss.tres" id="1_jexbc"]
 [ext_resource type="Script" path="res://Monsters/Monster.gd" id="1_m48ke"]
+[ext_resource type="Resource" uid="uid://c6abo2modmxwj" path="res://Battles/Moves/MoveData/ThornLash.tres" id="2_agu85"]
 
 [resource]
 script = ExtResource("1_m48ke")
@@ -13,3 +15,7 @@ defense = 32.0
 specialAttack = 48.0
 specialDefense = 35.0
 speed = 43.0
+move_table = {
+1: ExtResource("1_jexbc"),
+8: ExtResource("2_agu85")
+}

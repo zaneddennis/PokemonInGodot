@@ -1,13 +1,15 @@
 extends Node2D
 
 
-const ENCOUNTER_PROB = 0.3  # per footstep
+const ENCOUNTER_PROB = 0.45  # per footstep
 
 
 @export var player: Player
 
 @export var mapName = ""
 @export var encounterTable : Dictionary  # values should sum to 1!
+@export_range(1, 10) var minLevel = 1
+@export_range(1, 10) var maxLevel = 1
 
 var tileData : TileData  # data for where the player is currently standing
 
@@ -92,10 +94,30 @@ func GetMapStatus():
 		persistent_remove_chests = mapStatus["persistent_remove_chests"]
 
 
+func LaunchEncounter():
+	var species = Util.WeightedRandomChoice(encounterTable)
+	print([minLevel, maxLevel])
+	var level = [minLevel, maxLevel].pick_random()
+	print(level)
+	print("Wild Encounter! %s, Lv %d" % [species, level])
+	
+	player.get_node("Exclamation/AnimationPlayer").play("exclaim")
+	
+	get_tree().paused = true
+	
+	await player.get_node("Exclamation/AnimationPlayer").animation_finished
+	
+	# set up Battle
+	$UICanvas/Battle/Battle.SetUpWild(species, level)
+	$UICanvas/Battle/Battle.Activate()
+	$UICanvas/Battle.show()
+
+
 func _on_player_footstep():
 	print("Player footstep")
 	if tileData:
 		if tileData.get_custom_data("encounter"):
+			player.get_node("GrassWalkParticle").restart()
 			var roll = randf()
 			if roll < ENCOUNTER_PROB:
-				print("Wild Monster!")
+				LaunchEncounter()

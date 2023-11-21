@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Monster" load_steps=2 format=3 uid="uid://bin0ylbgtcjr6"]
+[gd_resource type="Resource" script_class="Monster" load_steps=3 format=3 uid="uid://bin0ylbgtcjr6"]
 
 [ext_resource type="Script" path="res://Monsters/Monster.gd" id="1_7gf01"]
+[ext_resource type="Resource" uid="uid://e1sg3founqnr" path="res://Battles/Moves/MoveData/Tackle.tres" id="1_fmyrx"]
 
 [resource]
 script = ExtResource("1_7gf01")
@@ -13,3 +14,6 @@ defense = 40.0
 specialAttack = 16.0
 specialDefense = 30.0
 speed = 20.0
+move_table = {
+1: ExtResource("1_fmyrx")
+}

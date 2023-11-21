@@ -36,13 +36,14 @@ func NewGame(pn, pg):
 	
 	playerParty = Party.new()
 	playerParty.AddMonster(
-		MonsterInstance.New("Chipfunk")
+		MonsterInstance.New("Chipfunk", 100)
 	)
 	playerParty.AddMonster(
-		MonsterInstance.New("Squish")
+		MonsterInstance.New("Squish", 100)
 	)
 	playerParty.AddMonster(
-		MonsterInstance.New("Bonfrog")
+		MonsterInstance.New("Bonfrog", 100),
+		
 	)
 	
 	for mapName in Constants.MAPS:

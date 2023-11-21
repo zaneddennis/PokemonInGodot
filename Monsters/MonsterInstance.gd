@@ -11,16 +11,24 @@ class_name MonsterInstance
 @export var moves: Array[Move]
 
 
-static func New(spName, hp=null):
+static func New(spName, xp=0, hp=null):
 	var mi = MonsterInstance.new()
 	
 	var sp = Database.GetMonster(spName)
 	mi.species = sp
 	
+	mi.xp = xp
+	var level = mi.GetLevel()
+	
 	if hp:
-		hp = hp
+		mi.hp = hp
 	else:
-		hp = mi.GetStat("hp")
+		mi.hp = mi.GetStat("hp")
+	
+	for l in range(level+1):
+		if l in mi.species.move_table:
+			mi.moves.append(mi.species.move_table[l])
+	
 	return mi
 
 
@@ -50,13 +58,11 @@ func GetXPModulo():
 
 func GetStat(s):
 	var result = floor(species.get(s) * GetLevel() / Constants.MAX_LEVEL)
-	if s == "hp":
-		result += 10
-	return result
+	return result + 10
 
 
 func _to_string():
-	return "<MonsterInstance:%s:%d>" % [species.name, hp]
+	return "<MonsterInstance:%s:L%d:H%d>" % [species.name, GetLevel(), hp]
 
 static func FromStr(s):
 	var data = s.left(-1).right(-1).split(":")

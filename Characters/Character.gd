@@ -30,6 +30,7 @@ func ProcessMovement(delta):
 		
 		footstepTimer += delta
 		if footstepTimer >= FOOTSTEP_INTERVAL:
+			$GrassWalkParticle.position = Constants.DIRECTIONS[walking] * 8
 			footstep.emit()
 			footstepTimer = 0.0
 		

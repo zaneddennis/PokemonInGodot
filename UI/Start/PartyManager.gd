@@ -21,6 +21,14 @@ func Activate(refresh=false):
 			pmw.get_node("Species").text = mi.species.name
 			pmw.get_node("TextureRect").texture.region = mi.species.GetTextureCoords()
 			
+			pmw.get_node("HP").text = "%d/%d" % [mi.hp, mi.GetStat("hp")]
+			pmw.get_node("HP/ProgressBar").max_value = mi.GetStat("hp")
+			pmw.get_node("HP/ProgressBar").value = mi.hp
+			
+			pmw.get_node("Level").text = "Lv. %d" % [mi.GetLevel()]
+			pmw.get_node("Level/ProgressBar").max_value = mi.GetXPRequired()
+			pmw.get_node("Level/ProgressBar").value = mi.GetXPModulo()
+			
 			pmw.mouse_entered.connect(self._on_pmw_hovered.bind(pmw))
 			pmw.mouse_exited.connect(self._on_pmw_unhovered.bind(pmw))
 		
@@ -30,6 +38,7 @@ func Activate(refresh=false):
 
 # todo: pad to always be 2 digits
 func ActivateStats(mi):
+	$Stats/Monster.text = mi.species.name
 	$Stats/XP.text = "XP: %s/%s" % ["0000", "0000"]
 	$Stats/Attack.text = "ATTACK:    %s" % mi.GetStat("attack")
 	$Stats/Defense.text = "DEFENSE:   %s" % mi.GetStat("defense")

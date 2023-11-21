@@ -1,6 +1,10 @@
 extends Control
 
 
+func _on_index_pressed():
+	$Index.Activate()
+
+
 func _on_party_pressed():
 	$Party.Activate()
 
@@ -10,7 +14,7 @@ func _on_inventory_pressed():
 
 
 func _on_save_pressed():
-	$Save.show()
+	$Save.Activate()
 
 
 func _on_exit_pressed():
