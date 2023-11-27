@@ -223,7 +223,15 @@ func CheckForKO():
 func ActivateKO(mi):
 	stage = BATTLE_STAGE.KO
 	
-	$Panel/Report.text = "%s has been knocked out!" % mi.species.name
+	var xpGain = 0
+	if mi != playerMonster:
+		xpGain = 100
+		playerMonster.xp += xpGain
+	
+	var report = "%s has been knocked out!" % mi.species.name
+	if xpGain > 0:
+		report += " %s gains %d XP!" % [playerMonster.species.name, xpGain]
+	$Panel/Report.text = report
 
 func ProcessKO():
 	if Input.is_action_just_pressed("interact"):

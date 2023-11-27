@@ -1,10 +1,4 @@
 res://GameStatus.tscn
 res://UI/default_theme.tres
 res://World/Maps/Map.tscn
-res://World/Maps/FlowershoreHospital.tscn
-res://World/Interactables/Interactable.tscn
-res://World/Interactables/ChestInteractable.tscn
-res://World/Interactables/HospitalInteractable.tscn
-res://World/Interactables/DialogueInteractable.tscn
-res://Characters/Player.gd
-res://UI/UIManager.gd
+res://Battles/Battle.tscn

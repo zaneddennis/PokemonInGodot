@@ -110,6 +110,7 @@ func Interact(target):
 		inputMode = INPUT_MODE.DIALOGUE
 		map.RemoveInteractable(target)
 	elif target.interactableType == Interactable.INTERACTABLE_TYPE.HEAL:
+		GameStatus.playerParty.RestoreAll()
 		ui.ActivateDialogue(target)
 		inputMode = INPUT_MODE.DIALOGUE
 
